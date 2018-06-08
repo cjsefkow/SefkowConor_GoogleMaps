@@ -8,11 +8,11 @@
     android:orientation="vertical">
 
     <!-- Layout for the View button -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
-        android:weightSum="1">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_view"
@@ -20,8 +20,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:layout_weight="1"
             android:onClick="changeView"
             android:text="View"></Button>
+
+        <Button
+            android:id="@+id/TrackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="trackMyLocation"
+            android:text="Track" />
+
+        <Button
+            android:id="@+id/ClearButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="clearMarkers"
+            android:text="Clear" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:weightSum="1">
 
         <EditText
             android:id="@+id/editText_addr"
@@ -30,6 +54,14 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onSearch"
+            android:text="Search" />
 
     </LinearLayout>
 
