@@ -82,7 +82,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(born).title("Born here"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(born));
 
-
+/*
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.d("MyMapsApp", "Failed fine permission check");
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
@@ -101,7 +101,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
             Log.d("MyMapsApp", "Enabling location");
             mMap.setMyLocationEnabled(true);
-        }
+        }*/
 
 
         locationSearch = findViewById(R.id.editText_addr);
@@ -155,11 +155,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             try {
                 Log.d("MyMapsApp", "onSearch: Getting addresses");
                 //Get a list of the addresses
-                addressList = geocoder.getFromLocationName(location, 10,
-                        userLocation.latitude - (5.0/60),
-                        userLocation.longitude - (5.0/60),
-                        userLocation.latitude + (5.0/60),
-                        userLocation.longitude + (5.0/60));
+                double lowerLeftLat = userLocation.latitude - (5.0/60);
+                double lowerLeftLong = userLocation.longitude - (5.0/60);
+                double upperRightLat = userLocation.latitude + (5.0/60);
+                double upperRightLong = userLocation.longitude + (5.0/60);
+                Log.d("MyMapsApp", "onSearch: Lower left latitude is " + lowerLeftLat);
+                //addressList = geocoder.getFromLocationName(location, 10, lowerLeftLat, lowerLeftLong, upperRightLat, upperRightLong); Not working
+                addressList = geocoder.getFromLocation(userLocation.latitude, userLocation.longitude, 10);
                 Log.d("MyMapsApp", "onSearch: address list length is " + addressList.size());
                 Toast.makeText(this, "Found " + addressList.size() + " result for \"" + location + "\".", Toast.LENGTH_SHORT).show();
 //                LatLng lowLeft = new LatLng(userLocation.latitude - (5.0/60), userLocation.longitude - (5.0/60));
@@ -176,7 +178,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 e.printStackTrace();
             }
 
-            if (!addressList.isEmpty()) {
+            if (addressList != null && !addressList.isEmpty()) {
                 Log.d("MyMapsApp", "onSearch: address list length is " + addressList.size());
                 for (int i = 0; i < addressList.size(); i++) {
                     Address address = addressList.get(i);
@@ -226,9 +228,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             && ActivityCompat.checkSelfPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED){
                         return;
                     }
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                            MIN_TIME_BW_UPDATES,
-                            MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGps);
                 }
             }
         } catch (Exception e) {
@@ -315,6 +315,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 locationManager.removeUpdates(this);
                 locationManager.removeUpdates(locationListenerNetwork);
                 gotMyLocationOneTime = true;
+            } else {
+                if ( (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) &&
+                        (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) ) {
+                    return;
+                }
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                        MIN_TIME_BW_UPDATES,
+                        MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGps);
             }
         }
 
@@ -351,7 +359,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                             MIN_TIME_BW_UPDATES,
-                            MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
+                            MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerGps);
                     break;
                 default:
                     // nothing
@@ -378,7 +386,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) ||
                     (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
                 Log.d("MyMapsApp", "Enabling location");
-                mMap.setMyLocationEnabled(true);
+                //mMap.setMyLocationEnabled(true);
             }
 
             Log.d("MyMapsApp", "trackMyLocation: tracking location");
@@ -395,7 +403,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) ||
                     (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
                 Log.d("MyMapsApp", "Disabling location");
-                mMap.setMyLocationEnabled(false);
+                //mMap.setMyLocationEnabled(false);
             }
 
             Log.d("MyMapsApp", "trackMyLocation: no longer tracking location");
