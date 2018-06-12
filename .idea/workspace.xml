@@ -35,12 +35,12 @@
       <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sefkowc1167/mymapsapp/MapsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="398" column="0" lean-forward="false" selection-start-line="398" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
+            <state relative-caret-position="402">
+              <caret line="201" column="126" lean-forward="false" selection-start-line="201" selection-start-column="126" selection-end-line="201" selection-end-column="126" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#21031#21032#0" expanded="true" />
-                <element signature="e#21059#21060#0" expanded="true" />
+                <element signature="e#21028#21029#0" expanded="true" />
+                <element signature="e#21056#21057#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2434,8 +2434,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21031#21032#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
+            <element signature="e#21028#21029#0" expanded="true" />
+            <element signature="e#21056#21057#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2473,8 +2473,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21031#21032#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
+            <element signature="e#21028#21029#0" expanded="true" />
+            <element signature="e#21056#21057#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2512,8 +2512,8 @@
           <caret line="270" column="0" lean-forward="true" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21031#21032#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
+            <element signature="e#21028#21029#0" expanded="true" />
+            <element signature="e#21056#21057#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2551,8 +2551,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21031#21032#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
+            <element signature="e#21028#21029#0" expanded="true" />
+            <element signature="e#21056#21057#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2590,8 +2590,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21031#21032#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
+            <element signature="e#21028#21029#0" expanded="true" />
+            <element signature="e#21056#21057#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2629,8 +2629,8 @@
           <caret line="168" column="55" lean-forward="false" selection-start-line="168" selection-start-column="55" selection-end-line="168" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21031#21032#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
+            <element signature="e#21028#21029#0" expanded="true" />
+            <element signature="e#21056#21057#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2668,8 +2668,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21031#21032#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
+            <element signature="e#21028#21029#0" expanded="true" />
+            <element signature="e#21056#21057#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2732,12 +2732,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/sefkowc1167/mymapsapp/MapsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="398" column="0" lean-forward="false" selection-start-line="398" selection-start-column="0" selection-end-line="398" selection-end-column="0" />
+        <state relative-caret-position="402">
+          <caret line="201" column="126" lean-forward="false" selection-start-line="201" selection-start-column="126" selection-end-line="201" selection-end-column="126" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#21031#21032#0" expanded="true" />
-            <element signature="e#21059#21060#0" expanded="true" />
+            <element signature="e#21028#21029#0" expanded="true" />
+            <element signature="e#21056#21057#0" expanded="true" />
           </folding>
         </state>
       </provider>

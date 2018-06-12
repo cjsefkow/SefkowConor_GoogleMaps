@@ -199,7 +199,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
 
                     // Place a marker on map
-                    mMap.addMarker(new MarkerOptions().position(latLng).title("Address " + i + ": " + address.getSubThoroughfare()));
+                    mMap.addMarker(new MarkerOptions().position(latLng).title("Address " + i + ": " + address.getAddressLine(0)));
                     mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
                 }
             }
