@@ -82,7 +82,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(born).title("Born here"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(born));
 
-/*
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             Log.d("MyMapsApp", "Failed fine permission check");
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 2);
@@ -96,7 +96,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else {
             Log.d("MyMapsApp", "Passed coarse permission check");
         }
-
+        /* Uncomment to enable current location marker
         if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) ||
                 (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)) {
             Log.d("MyMapsApp", "Enabling location");
@@ -160,10 +160,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 double upperRightLat = userLocation.latitude + (5.0/60);
                 double upperRightLong = userLocation.longitude + (5.0/60);
                 Log.d("MyMapsApp", "onSearch: Lower left latitude is " + lowerLeftLat);
-                //addressList = geocoder.getFromLocationName(location, 10, lowerLeftLat, lowerLeftLong, upperRightLat, upperRightLong); Not working
-                addressList = geocoder.getFromLocation(userLocation.latitude, userLocation.longitude, 10);
+                Log.d("MyMapsApp", "onSearch: Lower left longitude is " + lowerLeftLong);
+                Log.d("MyMapsApp", "onSearch: Upper right latitude is " + upperRightLat);
+                Log.d("MyMapsApp", "onSearch: Upper right longitude is " + upperRightLong);
+
+                Log.d("MyMapsApp", "onSearch: location = " + location);
+
+                //addressList = geocoder.getFromLocationName(location, 10, lowerLeftLat, lowerLeftLong, upperRightLat, upperRightLong);
+                if (geocoder == null) {
+                    Log.d("MyMapsApp", "geocoder is null");
+                } else {
+                    Log.d("MyMapsApp", "geocoder is not null");
+                    Log.d("MyMapsApp",  geocoder.toString() );
+                    addressList = geocoder.getFromLocationName(location, 100, lowerLeftLat, lowerLeftLong, upperRightLat, upperRightLong);
+                    //addressList = geocoder.getFromLocationName("Starbucks", 100);
+
+                }
                 Log.d("MyMapsApp", "onSearch: address list length is " + addressList.size());
-                Toast.makeText(this, "Found " + addressList.size() + " result for \"" + location + "\".", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Found " + addressList.size() + " results for \"" + location + "\".", Toast.LENGTH_SHORT).show();
 //                LatLng lowLeft = new LatLng(userLocation.latitude - (5.0/60), userLocation.longitude - (5.0/60));
 //                mMap.addMarker(new MarkerOptions().position(lowLeft).title("Lower Left Bound"));
 //                LatLng upRight = new LatLng(userLocation.latitude + (5.0/60), userLocation.longitude + (5.0/60));
